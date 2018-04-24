@@ -1,5 +1,5 @@
 let answer = document.getElementById('answer');
-let attempt = document.getElementById('attempt');
+let input = document.getElementById('attempt');
 
 
 
@@ -10,14 +10,14 @@ function guess() {
     setHiddenFields();
   }
 
-  if (validateInput(attempt.value)) {
+  if (validateInput(attempt)) {
     attempt++;
 
   } else {
     return false;
   }
 
-  if (getResults()) {
+  if (getResults(input.value)) {
     setMessage('You Win! :)');
     showAnswer(true);
     showReplay();
@@ -37,12 +37,12 @@ function guess() {
 //implement new functions here
 
 function setHiddenFields() {
-  answer = (Math.floor((Math.random() * 10000))).toString(); // random number 0-1000
-  while (answer.length < 4) {
-    answer = '0' + answer;
+  answer.value = (Math.floor((Math.random() * 10000))).toString(); // random number 0-1000
+  while (answer.value.length < 4) {
+    answer.value = '0' + answer.value;
   }
   let attempt = 0
-  console.log('set ' + answer + ' - ' + answer.length);
+  console.log('set ' + answer.value + ' - ' + (answer.value).length);
   ///Math.floor(Math.random()*1000,4);
   //add functionality to guess function here
 }
@@ -65,15 +65,15 @@ function getResults(input) {
   res = '<div class="row"><span class="col-md-6">' + input + '</span><div class="col-md-6">';
   let correct = 0;
   console.log('result ' + input + ' vs ' + answer.value);
-  for (i = 0; i++; i < 4) {
-    if (answer[i] == input[i]) {
-      res.append('<span class="glyphicon glyphicon-ok"></span>');
+  for (i = 0; i < 4;i++) {
+    if (answer.value[i] == input[i]) {
+      res+='<span class="glyphicon glyphicon-ok"></span>';
       correct++;
     } else {
-      if (answer.includes(input[i])) {
-        res.append('<span class="glyphicon glyphicon-transfer"></span>');
+      if (answer.toString().includes(input[i])) {
+        res+='<span class="glyphicon glyphicon-transfer"></span>';
       } else {
-        res.append('<span class="glyphicon glyphicon-remove"></span>');
+        res+='<span class="glyphicon glyphicon-remove"></span>';
       }
     }
 
@@ -108,13 +108,14 @@ function showReplay() {
 
 
 function test() {
-  // for (i=0;i++;i<10){ setHiddenFields();}
+   for (i=0;i<10;i++){ setHiddenFields();}
   setHiddenFields();
   // setMessage('test');
   validateInput('9090');
   validateInput('y');
   validateInput('12334');
   getResults('8888');
+  showAnswer(true);
 }
 
-//test();
+test();
