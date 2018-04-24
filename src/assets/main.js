@@ -104,9 +104,9 @@ function getResults(input) {
   return false;
 }
 
-function showAnswer(win) {
+function showAnswer(success) {
   let code = document.getElementById('code')
-  if (win) {
+  if (success) {
     code.ClassName += ' success';
   } else {
     code.ClassName += 'failure';
@@ -174,6 +174,7 @@ function test11(){
 
 
 function test15(){
+ answer.value='0123'
  showAnswer(true);
 
 }
