@@ -70,13 +70,15 @@ function getResults(input) {
   let correct = 0;
   console.log('result ' + input + ' vs ' + answer.value);
   for (i = 0; i < 4; i++) {
-    if (answer.value[i] == input[i]) {
+    if (answer.value.charAt(i) == input.charAt(i)) {
       res += '<span class="glyphicon glyphicon-ok"></span>';
       correct++;
     } else {
-      if (answer.toString().includes(input[i])) {
+      if (answer.value.includes(input[i])) {
+        console.log(answer.value+' includes '+(input.charAt(i)));
         res += '<span class="glyphicon glyphicon-transfer"></span>';
       } else {
+        console.log(answer.value+' does not includes '+input.charAt(i));
         res += '<span class="glyphicon glyphicon-remove"></span>';
       }
     }
@@ -121,8 +123,9 @@ function test() {
   validateInput('y');
   validateInput('12334');
   validateInput('9090');
-  getResults('8888');
+  getResults('1234');
   showAnswer(true);
+
 }
 
 //test();
