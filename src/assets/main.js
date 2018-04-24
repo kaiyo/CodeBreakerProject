@@ -13,10 +13,8 @@ function guess() {
 
   if (validateInput(input.value)) {
     attempt++;
-   // setMessage("");
   } else {
-    setMessage("Guesses must be exactly 4 characters long.");
-    return false;
+      return false;
   }
 
   if (getResults(input.value)) {
@@ -65,6 +63,7 @@ function validateInput(value) {
   if (value.length == 4) {
     return true;
   } else {
+    setMessage("Guesses must be exactly 4 characters long.");
     return false;
   }
 }
@@ -144,6 +143,16 @@ function test2(){
 //test();
 //test2();
 
+
+function test3(){
+    validateInput('2344');
+    console.log('2344 ' + document.getElementById('message').innerHTML)
+    validateInput('23443');
+    console.log('23443 ' + document.getElementById('message').innerHTML)
+
+}
+
+//test3();
 
 // Tests
 //mocha.setup('bdd');
