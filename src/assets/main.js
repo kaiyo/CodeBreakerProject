@@ -6,14 +6,16 @@ let input = document.getElementById('attempt');
 function guess() {
   //let input = document.getElementById('user-guess');
   //add functionality to guess function here
+  setMessage("");
   if (answer.value == '') {
-  setHiddenFields();
+     setHiddenFields();
   }
 
   if (validateInput(attempt)) {
     attempt++;
 
   } else {
+    setMessage("Guesses must be exactly 4 characters long.");
     return false;
   }
 
@@ -55,12 +57,10 @@ function setMessage(value) {
 }
 
 function validateInput(value) {
-  console.log('check ' + value + ' - ' + value.length);
-  setMessage("");
+  console.log('check ' + value + ' - ' + value.length +'-'+ (value.length == 4));
   if (value.length == 4) {
     return true;
   } else {
-    setMessage("Guesses must be exactly 4 characters long.");
     return false;
   }
 }
