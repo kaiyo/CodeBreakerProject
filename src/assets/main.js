@@ -61,6 +61,7 @@ function setMessage(msg) {
 function validateInput(value) {
   console.log('check ' + value + ' - ' + value.length +'-'+ (value.length == 4));
   if (value.length == 4) {
+    setMessage("");
     return true;
   } else {
     setMessage("Guesses must be exactly 4 characters long.");
@@ -148,6 +149,8 @@ function test3(){
     validateInput('2344');
     console.log('2344 ' + document.getElementById('message').innerHTML)
     validateInput('23443');
+    console.log('23443 ' + document.getElementById('message').innerHTML)
+     validateInput('2343');
     console.log('23443 ' + document.getElementById('message').innerHTML)
 
 }
