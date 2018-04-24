@@ -6,9 +6,8 @@ let input = document.getElementById('attempt');
 function guess() {
   //let input = document.getElementById('user-guess');
   //add functionality to guess function here
-  if (attempt != '' | answer.value != '') {
-    setHiddenFields();
-  }
+  setHiddenFields();
+
 
   if (validateInput(attempt)) {
     attempt++;
@@ -37,11 +36,14 @@ function guess() {
 //implement new functions here
 
 function setHiddenFields() {
-  answer.value = (Math.floor((Math.random() * 10000))).toString(); // random number 0-1000
-  while (answer.value.length < 4) {
-    answer.value = '0' + answer.value;
+  if (answer.value == '') {
+    answer.value = (Math.floor((Math.random() * 10000))).toString();
+    while (answer.value.length < 4) {
+      answer.value = '0' + answer.value;
+    }
+      let attempt = 0
   }
-  let attempt = 0
+
   console.log('set ' + answer.value + ' - ' + (answer.value).length);
   ///Math.floor(Math.random()*1000,4);
   //add functionality to guess function here
@@ -65,15 +67,15 @@ function getResults(input) {
   res = '<div class="row"><span class="col-md-6">' + input + '</span><div class="col-md-6">';
   let correct = 0;
   console.log('result ' + input + ' vs ' + answer.value);
-  for (i = 0; i < 4;i++) {
+  for (i = 0; i < 4; i++) {
     if (answer.value[i] == input[i]) {
-      res+='<span class="glyphicon glyphicon-ok"></span>';
+      res += '<span class="glyphicon glyphicon-ok"></span>';
       correct++;
     } else {
       if (answer.toString().includes(input[i])) {
-        res+='<span class="glyphicon glyphicon-transfer"></span>';
+        res += '<span class="glyphicon glyphicon-transfer"></span>';
       } else {
-        res+='<span class="glyphicon glyphicon-remove"></span>';
+        res += '<span class="glyphicon glyphicon-remove"></span>';
       }
     }
 
@@ -103,12 +105,13 @@ function showAnswer(win) {
 function showReplay() {
   document.getElementById('guessing-div').style.display = 'none';
   document.getElementById('replay-div').style.display = 'block';
-
 }
 
 
 function test() {
-   for (i=0;i<10;i++){ setHiddenFields();}
+  for (i = 0; i < 10; i++) {
+    setHiddenFields();
+  }
   setHiddenFields();
   // setMessage('test');
   validateInput('9090');
@@ -118,4 +121,8 @@ function test() {
   showAnswer(true);
 }
 
-test();
+//test();
+
+// Tests
+mocha.setup('bdd');
+var assert = chai.assert;
