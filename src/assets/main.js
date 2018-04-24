@@ -106,7 +106,7 @@ function getResults(input) {
 
 function showAnswer(win) {
     document.getElementById('code').innerHTML = answer.value;
-
+    document.getElementById('code').ClassName ="";
   if (win) {
     document.getElementById('code').ClassName += ' success';
   } else {
