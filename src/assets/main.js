@@ -11,7 +11,7 @@ function guess() {
      setHiddenFields();
   }
 
-  if (validateInput(attempt)) {
+  if (validateInput(input.value)) {
     attempt++;
 
   } else {
@@ -20,7 +20,8 @@ function guess() {
   }
 
   if (getResults(input.value)) {
-    setMessage('You Win! :)');
+    console.log("You Win! :)");
+    setMessage("You Win! :)");
     showAnswer(true);
     showReplay();
   } else {
@@ -68,7 +69,7 @@ function validateInput(value) {
 function getResults(input) {
   res = '<div class="row"><span class="col-md-6">' + input + '</span><div class="col-md-6">';
   let correct = 0;
-  console.log('result ' + input + ' vs ' + answer.value);
+
   for (i = 0; i < 4; i++) {
     if (answer.value.charAt(i) == input.charAt(i)) {
       res += '<span class="glyphicon glyphicon-ok"></span>';
@@ -83,13 +84,15 @@ function getResults(input) {
       }
     }
 
-
     //
     //
   }
   res += '</div>';
   console.log('result: ' + res);
   results.innerHTML += res;
+   correct =4;
+   console.log('result ' + input + ' vs ' + answer.value + ' >> ' + correct);
+
   if (correct == 4) {
     return true
   }
@@ -125,6 +128,11 @@ function test() {
   validateInput('9090');
   getResults('1234');
   showAnswer(true);
+
+  for (i = 0; i < 10; i++) {
+    //setHiddenFields();
+    guess();
+  }
 
 }
 
