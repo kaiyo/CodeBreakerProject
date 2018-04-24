@@ -108,11 +108,11 @@ function showAnswer(win) {
     document.getElementById('code').innerHTML = answer.value;
 
   if (win) {
-    document.getElementById('code').ClassName += 'success';
+    document.getElementById('code').ClassName += ' success';
   } else {
-    document.getElementById('code').ClassName += 'failure';
+    document.getElementById('code').ClassName += ' failure';
   }
-
+  console.log('code class: '+document.getElementById('code').ClassName);
 }
 
 function showReplay() {
