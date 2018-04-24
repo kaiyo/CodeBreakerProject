@@ -90,7 +90,7 @@ function getResults(input) {
   res += '</div>';
   console.log('result: ' + res);
   results.innerHTML += res;
-   correct =4;
+   //correct =4;
    console.log('result ' + input + ' vs ' + answer.value + ' >> ' + correct);
 
   if (correct == 4) {
