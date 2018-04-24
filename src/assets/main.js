@@ -24,12 +24,13 @@ function guess() {
     showReplay();
   } else {
       console.log("attempt:" + attempt);
-    if (attempt < 10) {
-      console.log("attempt: try");
-      setMessage("Incorrect, try again.");
-    } else {
+    if (attempt >= 10)
+    {
       console.log("attempt: Lost");
       setMessage('You Lose! :(');
+    }else{
+      console.log("attempt: try");
+      setMessage("Incorrect, try again.");
     }
   }
 
@@ -103,7 +104,8 @@ function getResults(input) {
 }
 
 function showAnswer(win) {
-  document.getElementById('code').innerHTML = answer.value;
+    document.getElementById('code').innerHTML = answer.value;
+
   if (win) {
     document.getElementById('code').ClassName = 'success';
   } else {
