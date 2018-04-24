@@ -107,11 +107,10 @@ function getResults(input) {
 
 function showAnswer(success) {
 
-  console.log (success);
-  if (success == true) {
-    code.className = ' success';
+  if (success) {
+    code.className += ' success';
   } else {
-    code.className = ' failure';
+    code.className += ' failure';
   }
 
   //console.log('code class: '+document.getElementById('code').ClassName);
@@ -177,13 +176,8 @@ function test11(){
 
 function test15(){
  answer.value='0123'
- showAnswer(true);
- //code.className = 'test';
- console.log(code.className);
- code.ClassName = ' success';
+ showAnswer(false);
  console.log(document.getElementById('code').className);
  console.log(document.getElementById('code').className.indexOf(' success'));
 
 }
-
-//test15();
