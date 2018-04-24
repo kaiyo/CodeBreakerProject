@@ -6,8 +6,9 @@ let input = document.getElementById('attempt');
 function guess() {
   //let input = document.getElementById('user-guess');
   //add functionality to guess function here
+  if (answer.value == '') {
   setHiddenFields();
-
+  }
 
   if (validateInput(attempt)) {
     attempt++;
@@ -36,13 +37,13 @@ function guess() {
 //implement new functions here
 
 function setHiddenFields() {
-  if (answer.value == '') {
+
     answer.value = (Math.floor((Math.random() * 10000))).toString();
     while (answer.value.length < 4) {
       answer.value = '0' + answer.value;
     }
       let attempt = 0
-  }
+
 
   console.log('set ' + answer.value + ' - ' + (answer.value).length);
   ///Math.floor(Math.random()*1000,4);
@@ -105,6 +106,7 @@ function showAnswer(win) {
 function showReplay() {
   document.getElementById('guessing-div').style.display = 'none';
   document.getElementById('replay-div').style.display = 'block';
+
 }
 
 
