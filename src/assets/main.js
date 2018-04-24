@@ -25,7 +25,7 @@ function guess() {
     } else { //lost
 
     console.log("attempt:" + attempt.value);
-    if (attempt >= 10)
+    if (attempt.value >= 10)
     {
       console.log("attempt: Lost");
       setMessage('You Lose! :(');
@@ -80,7 +80,7 @@ function getResults(input) {
       res += '<span class="glyphicon glyphicon-ok"></span>';
       correct++;
     } else {
-      if (answer.value.includes(input[i])) {
+      if (answer.value.includes(input.charAt(i))) {
         console.log(answer.value+' includes '+(input.charAt(i)));
         res += '<span class="glyphicon glyphicon-transfer"></span>';
       } else {
@@ -108,9 +108,9 @@ function showAnswer(win) {
     document.getElementById('code').innerHTML = answer.value;
 
   if (win) {
-    document.getElementById('code').ClassName = 'success';
+    document.getElementById('code').ClassName += 'success';
   } else {
-    document.getElementById('code').ClassName = 'failure';
+    document.getElementById('code').ClassName += 'failure';
   }
 
 }
@@ -171,3 +171,11 @@ function test11(){
 // Tests
 //mocha.setup('bdd');
 //var assert = chai.assert;
+
+
+function test15(){
+ showAnswer(true);
+
+}
+
+//test15();
