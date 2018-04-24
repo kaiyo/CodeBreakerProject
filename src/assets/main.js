@@ -1,19 +1,19 @@
 let answer = document.getElementById('answer');
 let input = document.getElementById('attempt');
-
+let attempt = 0
 
 
 function guess() {
   //let input = document.getElementById('user-guess');
   //add functionality to guess function here
-  setMessage("");
+  //setMessage("");
   if (answer.value == '') {
      setHiddenFields();
   }
 
   if (validateInput(input.value)) {
     attempt++;
-    setMessage("");
+   // setMessage("");
   } else {
     setMessage("Guesses must be exactly 4 characters long.");
     return false;
@@ -25,10 +25,12 @@ function guess() {
     showAnswer(true);
     showReplay();
   } else {
-
+      console.log("attempt:" + attempt);
     if (attempt < 10) {
+      console.log("attempt: try");
       setMessage("Incorrect, try again.");
     } else {
+      console.log("attempt: Lost");
       setMessage('You Lose! :(');
     }
   }
@@ -45,7 +47,7 @@ function setHiddenFields() {
     while (answer.value.length < 4) {
       answer.value = '0' + answer.value;
     }
-      let attempt = 0
+    attempt = 0
 
 
   console.log('set ' + answer.value + ' - ' + (answer.value).length);
@@ -53,8 +55,9 @@ function setHiddenFields() {
   //add functionality to guess function here
 }
 
-function setMessage(value) {
-  document.getElementById('message').innerHTML = value;
+function setMessage(msg) {
+  document.getElementById('message').innerHTML = msg;
+  console.log('message: '+msg)
 }
 
 function validateInput(value) {
@@ -90,7 +93,7 @@ function getResults(input) {
   res += '</div>';
   console.log('result: ' + res);
   results.innerHTML += res;
-  // correct =4;
+
    console.log('result ' + input + ' vs ' + answer.value + ' >> ' + correct);
 
   if (correct == 4) {
@@ -121,22 +124,26 @@ function test() {
     setHiddenFields();
   }
   setHiddenFields();
-  // setMessage('test');
+  setMessage('test');
   validateInput('9090');
-  validateInput('y');
-  validateInput('12334');
+ // validateInput('y');
+ // validateInput('12334');
   validateInput('9090');
   getResults('1234');
   showAnswer(true);
 
-  for (i = 0; i < 10; i++) {
-    //setHiddenFields();
+}
+
+function test2(){
+    answer.value='0123'
+    input.value='0127'
     guess();
-  }
 
 }
 
 //test();
+//test2();
+
 
 // Tests
 //mocha.setup('bdd');
