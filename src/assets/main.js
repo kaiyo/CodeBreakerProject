@@ -1,5 +1,6 @@
 let answer = document.getElementById('answer');
 let attempt = document.getElementById('attempt');
+let code = document.getElementById('code');
 
 function guess() {
   let input = document.getElementById('user-guess');
@@ -105,13 +106,14 @@ function getResults(input) {
 }
 
 function showAnswer(success) {
-  let code = document.getElementById('code')
-  if (success) {
-    code.ClassName += ' success';
+
+  console.log (success);
+  if (success == true) {
+    code.className = ' success';
   } else {
-    code.ClassName += 'failure';
+    code.className = ' failure';
   }
-  code.innerHTML = answer.value;
+
   //console.log('code class: '+document.getElementById('code').ClassName);
 }
 
@@ -176,6 +178,11 @@ function test11(){
 function test15(){
  answer.value='0123'
  showAnswer(true);
+ //code.className = 'test';
+ console.log(code.className);
+ code.ClassName = ' success';
+ console.log(document.getElementById('code').className);
+ console.log(document.getElementById('code').className.indexOf(' success'));
 
 }
 
