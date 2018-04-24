@@ -1,11 +1,9 @@
 let answer = document.getElementById('answer');
-let input = document.getElementById('attempt');
-let attempt = 0
-
+let attempt = document.getElementById('attempt');
 
 function guess() {
-  //let input = document.getElementById('user-guess');
-  //add functionality to guess function here
+  let input = document.getElementById('user-guess');
+   //add functionality to guess function here
   //setMessage("");
   if (answer.value == '') {
      setHiddenFields();
@@ -14,7 +12,7 @@ function guess() {
   if (!validateInput(input.value))
   { return false }
   else
-  { attempt++;}
+  { attempt.value++;}
 
 
   result = getResults(input.value);
@@ -26,7 +24,7 @@ function guess() {
     showReplay();
     } else { //lost
 
-    console.log("attempt:" + attempt);
+    console.log("attempt:" + attempt.value);
     if (attempt >= 10)
     {
       console.log("attempt: Lost");
@@ -49,7 +47,7 @@ function setHiddenFields() {
     while (answer.value.length < 4) {
       answer.value = '0' + answer.value;
     }
-    attempt = 0
+    attempt.value = 0
 
 
   console.log('set ' + answer.value + ' - ' + (answer.value).length);
@@ -153,7 +151,7 @@ function test2(){
 }
 
 //test();
-test2();
+//test2();
 
 
 function test11(){
