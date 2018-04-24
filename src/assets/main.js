@@ -105,14 +105,14 @@ function getResults(input) {
 }
 
 function showAnswer(win) {
-    document.getElementById('code').innerHTML = answer.value;
-    document.getElementById('code').ClassName ="";
+  let code = document.getElementById('code')
   if (win) {
-    document.getElementById('code').ClassName += 'success';
+    code.ClassName += ' success';
   } else {
-    document.getElementById('code').ClassName += 'failure';
+    code.ClassName += 'failure';
   }
-  console.log('code class: '+document.getElementById('code').ClassName);
+  code.innerHTML = answer.value;
+  //console.log('code class: '+document.getElementById('code').ClassName);
 }
 
 function showReplay() {
