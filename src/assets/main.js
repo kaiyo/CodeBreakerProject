@@ -13,7 +13,7 @@ function guess() {
 
   if (validateInput(input.value)) {
     attempt++;
-
+    setMessage("");
   } else {
     setMessage("Guesses must be exactly 4 characters long.");
     return false;
@@ -90,7 +90,7 @@ function getResults(input) {
   res += '</div>';
   console.log('result: ' + res);
   results.innerHTML += res;
-   //correct =4;
+  // correct =4;
    console.log('result ' + input + ' vs ' + answer.value + ' >> ' + correct);
 
   if (correct == 4) {
